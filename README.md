@@ -1,15 +1,16 @@
-Chest X-Ray Pneumonia Classifier:--
+Chest X-Ray Pneumonia Classifier :--
 Transfer Learning with DenseNet121 | PyTorch
 
 A binary image classification project that detects Pneumonia from chest X-ray images using transfer learning on a pretrained DenseNet121 model. Built as part of a personal deep learning learning journey covering tensors, autograd, ANN, CNN, RNN, and LSTM from scratch in PyTorch.
 
-Dataset:--
+Dataset :--
 Chest X-Ray Images (Pneumonia)- available on Kaggle.
 https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
 
-Model Architecture:--
+Model Architecture :--
 Base model: DenseNet121 pretrained on ImageNet.
 DenseNet uses dense connections where each layer receives feature maps from all previous layers. This makes it particularly well suited for medical imaging because subtle low-contrast features from early layers are preserved throughout the entire network.
+
 DenseNet121 Backbone (partially frozen)
         ↓
   Linear(1024 → 512)
@@ -24,7 +25,7 @@ DenseNet121 Backbone (partially frozen)
   NORMAL  /  PNEUMONIA
 Early layers of the backbone were frozen to preserve generic ImageNet features. The last two dense blocks were unfrozen for fine-tuning on the X-ray domain.
 
-Techniques Used:--
+Techniques Used :--
 1) Handling Class Imbalance
 The dataset has roughly 3x more Pneumonia images than Normal. Two complementary methods were used to prevent the model from being biased toward the majority class.
 
@@ -33,7 +34,7 @@ Weighted CrossEntropyLoss — penalizes mistakes on the minority class more duri
 
 3) Augmentation (training only)
 
-Training Results:--
+Training Results :--
 Training ran for 20 epochs before early stopping triggered at 20. Best weights from epoch 15 restored.
 Train_loss=0.2703, Val_loss=0.2367, Val_acc=0.9063
 
