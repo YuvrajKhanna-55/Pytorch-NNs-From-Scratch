@@ -1,5 +1,3 @@
----
-
 **Chest X-Ray Pneumonia Classifier**
 
 Transfer Learning with DenseNet121 | PyTorch
